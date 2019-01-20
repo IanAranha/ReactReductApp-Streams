@@ -32,6 +32,13 @@ class GoogleAuth extends React.Component{
         })
     }
 
+    onSignIn = () => {
+        this.auth.signIn()
+    }
+
+    onSignOut = () => {
+        this.auth.signOut()
+    }
 
 
     //Helper function that will read state and then place appropriate 
@@ -42,7 +49,7 @@ class GoogleAuth extends React.Component{
         } else if(this.state.isSignedIn){
             return (
                 <div>
-                    <button className='ui red google button'>
+                    <button onClick={this.onSignOut} className='ui red google button'>
                         <i className='google icon' />
                             Sign Out
                     </button>
@@ -51,7 +58,7 @@ class GoogleAuth extends React.Component{
         } else {
             return (
                 <div>
-                    <button className='ui green google button'>
+                    <button onClick={this.onSignIn} className='ui green google button'>
                         <i className='google icon' />
                             Sign In with Google
                     </button>
