@@ -28,7 +28,9 @@ class GoogleAuth extends React.Component{
 
     onAuthChange = (isSignedIn) => {
         if(isSignedIn){
-            this.props.signIn()
+            //Adding code to extract User Id from the Google API. 
+            //The User Id is passed to the action creator
+            this.props.signIn(this.auth.currentUser.get().getId())
         } else {
             this.props.signOut()
         }
